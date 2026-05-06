@@ -1,5 +1,5 @@
 {
-  "name": "iptv-landing-page",
+  "name": "iptv-freeee",
   "version": "1.0.0",
   "description": "صفحة هبوط احترافية لخدمة البث المباشر IPTV",
   "main": "index.html",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/youssef99youssef/Iptv.git"
+    "url": "https://github.com/youssef99youssef/Iptv-freeee.git"
   },
   "devDependencies": {
     "live-server": "^1.2.1"
