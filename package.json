@@ -1,0 +1,27 @@
+{
+  "name": "iptv-landing-page",
+  "version": "1.0.0",
+  "description": "صفحة هبوط احترافية لخدمة البث المباشر IPTV",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server",
+    "dev": "npx live-server"
+  },
+  "keywords": [
+    "iptv",
+    "streaming",
+    "landing-page",
+    "arabic",
+    "responsive-design"
+  ],
+  "author": "IPTV Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youssef99youssef/Iptv.git"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
