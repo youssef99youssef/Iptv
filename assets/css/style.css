@@ -180,6 +180,17 @@ body {
     color: white;
 }
 
+.btn-download {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(40, 167, 69, 0.4);
+}
+
 /* Streaming Devices */
 .streaming-devices {
     position: relative;
