@@ -17,11 +17,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Scroll to section function
+// Scroll to section function - FIXED
 function scrollToSection(sectionId) {
     const section = document.querySelector(sectionId);
     if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.warn('Section not found:', sectionId);
     }
 }
 
@@ -59,14 +61,31 @@ document.querySelectorAll('.feature-card, .pricing-card, .faq-item').forEach(ele
     observer.observe(element);
 });
 
-// Subscribe button click handlers (example)
+// Subscribe button click handlers - FIXED to actually scroll
 document.querySelectorAll('.pricing-card .btn').forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
         const planName = button.closest('.pricing-card').querySelector('.plan-name').textContent;
-        showNotification(`تم تحديد الخطة: ${planName}`);
+        showNotification(`تم تحديد الخطة: ${planName}`, 'success');
+        
+        // Scroll to contact section
+        setTimeout(() => {
+            scrollToSection('#contact');
+        }, 500);
     });
 });
+
+// Hero section buttons - FIXED
+const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+if (heroButtons.length > 0) {
+    heroButtons[0].addEventListener('click', () => {
+        scrollToSection('#pricing');
+    });
+    
+    heroButtons[1].addEventListener('click', () => {
+        scrollToSection('#features');
+    });
+}
 
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
@@ -74,7 +93,6 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const formData = new FormData(contactForm);
         const name = contactForm.querySelector('input[type="text"]').value;
         const email = contactForm.querySelector('input[type="email"]').value;
         const message = contactForm.querySelector('textarea').value;
@@ -82,7 +100,7 @@ if (contactForm) {
         // Validate form
         if (name.trim() && email.trim() && message.trim()) {
             // Simulate sending (in real app, use fetch or XMLHttpRequest)
-            showNotification('تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.');
+            showNotification('تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.', 'success');
             contactForm.reset();
         } else {
             showNotification('يرجى ملء جميع الحقول', 'error');
